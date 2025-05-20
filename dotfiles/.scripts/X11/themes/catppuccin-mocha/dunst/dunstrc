@@ -1,0 +1,22 @@
+[global]
+    font = Noto Sans Mono 6
+    scale = 1
+    enable_recursive_icon_lookup = true
+    separator_color= frame
+    frame_color = "#89b4fa"
+
+[urgency_low]
+    background = "#1e1e2e"
+    foreground = "#cdd6f4"
+    highlight = "#89b4fa"
+
+[urgency_normal]
+    background = "#cdd6f4"
+    foreground = "#1e1e2e"
+    highlight = "#89b4fa"
+
+[urgency_critical]
+    background = "#f5c2e7"
+    foreground = "#1e1e2e"
+    highlight = "#f38ab8"
+    frame_color = "#f38ab8"

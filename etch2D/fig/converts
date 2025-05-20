@@ -1,0 +1,25 @@
+#!/bin/bash
+
+# chmod +x converts to make it executable
+
+# IFS : defines array separator
+# default separator = spacebar (\n)
+# but since filename has spacebar, the separator has to be changed
+# new separator = line break (\b)
+IFS=$'\b'
+
+# declare -a : declares array
+# find .pdf files to maximum 6 subdirectories
+# separate with line break (\b)
+# the elements will be .pdf files (spacebar intact)
+declare -a pdfs=($(find . -maxdepth 6 -type f -iname '*.pdf' -printf '%p\b'))
+
+for i in "${pdfs[@]}"
+do
+	# new filename replaced .pdf to .svg
+	svg=${i/\.pdf/\.svg}
+	# I don't know what ffmpeg does, but spacebar is intact
+	pdf2svg "$i" "${svg}"
+	# remove .pdf file
+	rm "$i"
+done

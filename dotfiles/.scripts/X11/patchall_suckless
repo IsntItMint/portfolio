@@ -1,0 +1,43 @@
+#!/bin/sh
+# escape when error occured
+set -e
+
+sucklessdir="${HOME}/.config/suckless/"
+patchdir="${sucklessdir}patch/"
+
+## declare an array variable
+declare -a arr=("dmenu" "dwm" "slock" "slstatus" "st")
+
+prevpath=$(pwd)
+
+## now loop through the above array
+for i in "${arr[@]}"
+do
+	echo "$i"
+	patch="${patchdir}$i-jkwon.diff"
+	dest="${sucklessdir}$i/"
+	if [  -d $dest ]; then
+		cd $dest
+		if [ $(git branch --show-current) != mypatch ]; then
+			echo "branch is not mypatch on $i !!!"
+			exit 1
+		fi
+		git stash
+		git checkout master
+		git branch -D mypatch
+		git stash drop || true
+		git branch mypatch
+		git checkout mypatch
+		git apply -3 $patch
+		make clean
+		rm -f config.h
+		git add .
+		git commit -m "latest patch from dotfiles"
+		sudo make install
+	fi
+done
+
+cd "${prevpath}"
+
+# You can access them using echo "${arr[0]}", "${arr[1]}" also
+

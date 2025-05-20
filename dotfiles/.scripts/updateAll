@@ -1,0 +1,6 @@
+# !/bin/sh
+
+
+yes | paru -Syyu
+yes | paru -Scc
+yes | paru -Rs $(paru -Qdtq)

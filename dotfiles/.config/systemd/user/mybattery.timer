@@ -1,0 +1,14 @@
+[Unit]
+Description=run mytimer every 60 seconds.
+
+[Timer]
+AccuracySec=1us
+# Initial delay
+OnActiveSec=1s
+# Period
+OnUnitActiveSec=1m
+
+[Install]
+WantedBy=timers.target
+WantedBy=dbus.service
+WantedBy=graphical-session.target

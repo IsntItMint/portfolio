@@ -1,0 +1,19 @@
+#!/bin/sh
+
+msgtag="mybattery"
+
+acpi -b | awk -F'[,:%]' '{print $2, $3}' | {
+	read -r status capacity
+
+	if [ "$status" = Discharging ]; then
+		if [ "$capacity" -lt 5 ]; then
+			logger "Critical battery threshold"
+			systemctl hibernate
+		elif [ "$capacity" -lt 25 ]; then
+			notify-send -a "mybattery" -u critical \
+				-h string:x-canonical-private-synchronous:"$msgtag" \
+				-h int:value:"$capacity" \
+				"BATTERY CRITICAL!"
+		fi
+	fi
+}

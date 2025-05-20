@@ -1,0 +1,20 @@
+#!/bin/sh
+echo $0
+echo $1
+
+choices="nothing\nreload\nlogout\nlock\nsuspend\nhibernate\nshutdown\nreboot"
+
+chosen=$(echo -e "$choices" | dmenu )
+#chosen=$(echo -e "$choices" | dmenu -nb $1 -nf $2 -sb $3 -sf $4 )
+
+
+case "$chosen" in
+	"nothing") ;;
+	"reload") killall dwm ;;
+	"logout") killall restartdwm ;;
+	"lock") slock -m "$(date "+%F %a %T")" ;;
+	"suspend") slock & systemctl suspend ;;
+	"hibernate") slock & systemctl hibernate ;;
+	"shutdown") killall restartdwm; systemctl poweroff;;
+	"reboot") killall restartdwm; systemctl reboot ;;
+esac

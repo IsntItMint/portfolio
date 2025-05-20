@@ -1,0 +1,31 @@
+#!/bin/sh
+# escape when error occured
+set -e
+
+sucklessdir="${HOME}/.config/suckless/"
+patchdir="${sucklessdir}patch/"
+
+## declare an array variable
+declare -a arr=("dmenu" "dwm" "scroll" "slock" "slstatus" "st")
+
+prevpath=$(pwd)
+
+## now loop through the above array
+for i in "${arr[@]}"
+do
+	echo "$i"
+	repourl="https://git.suckless.org/$i"
+	cd ${sucklessdir}
+	git clone ${repourl}
+	dest="${sucklessdir}$i/"
+	if [  -d $dest ]; then
+		cd $dest
+		git branch mypatch
+		git checkout mypatch
+	fi
+done
+
+cd "${prevpath}"
+
+# You can access them using echo "${arr[0]}", "${arr[1]}" also
+

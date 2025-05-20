@@ -1,0 +1,18 @@
+#!/bin/sh
+echo $0
+echo $1
+
+choices="logout\nlock\nsuspend\nhibernate\nshutdown\nreboot"
+
+chosen=$(echo -e "$choices" | tofi )
+#chosen=$(echo -e "$choices" | dmenu -nb $1 -nf $2 -sb $3 -sf $4 )
+
+
+case "$chosen" in
+	"logout") hyprctl dispatch exit ; loginctl terminate-session $XDG_SESSION_ID;;
+	"lock") hyprlock ;;
+	"suspend") hyprlock & systemctl suspend ;;
+	"hibernate") systemctl hibernate ;;
+	"shutdown") hyprctl dispatch exit; systemctl poweroff;;
+	"reboot") hyprctl dispatch exit; systemctl reboot ;;
+esac

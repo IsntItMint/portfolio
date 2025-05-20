@@ -1,0 +1,2 @@
+output folder,input folder,experiment file,sheet,columns
+data/simulation/ranking/H3PO4/1000ppm,data/simulation/transform/H3PO4/1000ppm,data/experiment/mogi_H3PO4.xlsx,mogi,A:C

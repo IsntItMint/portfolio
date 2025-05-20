@@ -1,0 +1,17 @@
+#!/bin/bash
+# changeMic
+ 
+# Arbitrary but unique message tag
+msgTag="mymic"
+ 
+wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle
+ 
+# Query ~~amixer~~ wireplumber for the current volume and whether or not the speaker is muted
+
+if [[ $(wpctl get-volume @DEFAULT_AUDIO_SOURCE@ | grep "MUTED" ) ]]; then
+	notify-send -t 1000 -a "changeMic" -u low \
+	-h string:x-canonical-private-synchronous:${msgTag} "MIC MUTE"
+else
+	notify-send -t 1000 -a "changeMic" -u low \
+	-h string:x-canonical-private-synchronous:${msgTag} "MIC ON"
+fi

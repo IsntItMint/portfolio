@@ -1,0 +1,11 @@
+species,H3PO4/1000ppm.csv
+reactions,H3PO4.csv
+discrete,1e-3/0.20.csv
+maxitr_LM,0
+maxitr_NR,10
+lmd0,1
+nu,0.5
+chem_mitigation,0.0
+elec_mitigation,1e-7
+difu_mitigation,0.0
+advc_mitigation,0.0

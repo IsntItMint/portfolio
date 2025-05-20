@@ -1,0 +1,21 @@
+[global]
+    font = Unifont 8
+    scale = 1 
+    enable_recursive_icon_lookup = true
+    frame_color = "#928374"
+
+[urgency_low]
+    background = "#282828"
+    foreground = "#fbf1c7"
+    highlight = "#fbf1c7"
+
+[urgency_normal]
+    background = "#fbf1c7"
+    foreground = "#282828"
+    highlight = "#282828"
+
+[urgency_critical]
+    background = "#cc241d"
+    foreground = "#ffffff"
+    highlight = "#ffffff"
+    frame_color = "#fb4934"

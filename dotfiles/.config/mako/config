@@ -1,0 +1,26 @@
+# Take a look at the mako manpage with the command:
+#   man 5 mako
+# To view all configuration options.
+
+font= Unifont 12
+layer=overlay
+border-size=2
+border-color=#d65d02
+background-color=#282828
+text-color=#fbf1c7
+progress-color=over #d65d02
+default-timeout=5000
+ignore-timeout=0
+
+[urgency=normal]
+background-color=#fbf1c7
+text-color=#282828
+progress-color=over #fe8019
+ignore-timeout=0
+
+[urgency=high]
+background-color=#cc241d
+text-color=#ffffff
+border-color=#fb4934
+progress-color=over #d79921
+ignore-timeout=1

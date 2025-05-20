@@ -1,0 +1,114 @@
+/* colors */
+
+@define-color normbg #282828;
+@define-color normfg #fbf1c7;
+@define-color selbg #d65d02;
+@define-color selbg-dark #af3a03;
+@define-color selfg #fbf1c7;
+@define-color gruvbox-red #cc241d;
+
+
+* {
+    /* `otf-font-awesome` is required to be installed for icons */
+    border: none;
+    border-radius: 0px;
+    min-height: 0;
+    font-family: Unifont, monospace;
+    font-size: 16px;
+    padding: 0;
+}
+
+window#waybar {
+    background-color: @normbg;
+    color: @normfg;
+}
+
+button {
+    box-shadow: none;
+    text-shadow: none;
+    background: none;
+    transition: none;
+}
+
+#workspaces button {
+    padding: 0px 4px;
+}
+
+#workspaces button.empty {
+    background-color: #000000;
+    color: @selfg;
+}
+
+#workspaces button:hover {
+    background: @selbg-dark;
+}
+
+#workspaces button.active {
+    background-color: @selbg;
+    color: @selfg;
+}
+
+#workspaces button.urgent {
+    background-color: @gruvbox-red;
+}
+
+#submap {
+    padding: 0 2px;
+    border-left: 1px solid @normfg;
+    border-right: 1px solid @normfg;
+    margin: 6px 0px;
+}
+
+#window {
+    padding: 0 4px;
+}
+
+#clock,
+#battery,
+#cpu,
+#memory,
+#disk,
+#temperature,
+#network,
+#tray,
+#mode,
+#idle_inhibitor,
+#mpd {
+    border-left: 1px solid @normfg;
+    margin: 6px 0px;
+    padding: 0 8px;
+}
+
+
+/* If workspaces is the leftmost module, omit left margin */
+.modules-left > widget:first-child > #workspaces {
+    margin-left: 0;
+}
+
+/* If workspaces is the rightmost module, omit right margin */
+.modules-right > widget:last-child > #workspaces {
+    margin-right: 0;
+}
+
+
+@keyframes blink {
+    to {
+        background-color: #ffffff;
+        color: #000000;
+    }
+}
+
+/* Using steps() instead of linear as a timing function to limit cpu usage */
+#battery.critical:not(.charging) {
+    background-color: @gruvbox-red;
+    animation-name: blink;
+    animation-duration: 0.5s;
+    animation-timing-function: steps(12);
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+}
+
+
+#temperature.critical {
+    background-color: @gruvbox-red;
+}

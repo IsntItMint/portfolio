@@ -1,0 +1,34 @@
+#!/bin/sh
+
+killall steam
+killall fcitx5
+
+themeDir="$HOME/.scripts/X11/themes"
+wallDir="$HOME/.scripts/wallpapers"
+XresourcesDir="$HOME/.config/X11/Xresources.d"
+dunstDir="$HOME/.config/dunst"
+conkyDir="$HOME/.config/conky"
+nvimDir="$HOME/.config/nvim/lua"
+
+chosen=$( ls $themeDir | dmenu )
+
+if [ $chosen ]
+then
+	cp -r $themeDir/$chosen/Xresources.d/* $XresourcesDir
+	cp -r $themeDir/$chosen/dunst/* $dunstDir
+	cp -r $themeDir/$chosen/conky/* $conkyDir
+	cp -r $themeDir/$chosen/nvim/* $nvimDir
+	feh --bg-center --image-bg '#000000' $wallDir/$chosen.png
+
+	killall dunst
+	killall conky
+	xrdb ${HOME}/.Xresources
+	pidof st | xargs kill -s USR1
+	killall dwm
+	dunst & disown
+	conky & disown
+	conky -c $HOME/.config/conky/conky-note.conf & disown
+	fcitx5 & disown
+
+	$HOME/scripts/testnotify
+fi

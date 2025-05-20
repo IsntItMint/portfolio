@@ -1,0 +1,7 @@
+﻿reactions,data/input/conditions/reactions/H3PO4_before.csv
+species,data/input/conditions/species/H3PO4.csv
+simulation folder (after),data/simulation/fitting/H3PO4/1000ppm
+simulation folder (before),data/simulation/reported/H3PO4/1000ppm
+experiment file,data/experiment/mogi_H3PO4.xlsx
+sheet,mogi
+columns,A:C

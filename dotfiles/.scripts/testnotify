@@ -1,0 +1,17 @@
+#!/bin/bash
+
+msgTag1="test1"
+msgTag2="test2"
+msgTag3="test3"
+ 
+notify-send -t 10000 -a "test" -u low \
+	-h string:x-canonical-private-synchronous:${msgTag} \
+	"LOW"
+ 
+notify-send -t 10000 -a "test" -u normal \
+	-h string:x-canonical-private-synchronous:${msgTag} \
+	"NORMAL"
+ 
+notify-send -t 10000 -a "test" -u critical \
+	-h string:x-canonical-private-synchronous:${msgTag} \
+	"CRITICAL"

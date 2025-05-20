@@ -1,0 +1,39 @@
+#!/bin/sh
+# escape when error occured
+set -e
+## declare an array variable
+declare -a arr=("dmenu" "dwm" "slock" "slstatus" "st")
+
+prevpath=$(pwd)
+
+## now loop through the above array
+
+for i in "${arr[@]}"
+do
+	echo "=== patching "$i" ==="
+	dest="$HOME/.config/suckless/"$i"/"
+	patch="$HOME/.config/suckless/patch/"$i"-jkwon.diff"
+	if [ -d $dest ]; then
+		cd $dest
+		if [ $(git branch --show-current) != mypatch ]; then
+			echo "branch is not mypatch on $i !!!"
+			exit 1
+		fi
+		git stash --keep-index
+		git checkout master
+		git pull
+		git checkout mypatch
+		git stash pop || true
+		git rebase --rebase-merges master
+		git diff master >> $patch
+		sudo make clean
+		rm -f config.h
+		sudo make install
+		echo "=== note : if merge conflict occurs, just use 'git mergetool'"
+	fi
+done
+
+cd $prevpath
+
+# You can access them using echo "${arr[0]}", "${arr[1]}" also
+

@@ -1,0 +1,13 @@
+#!/bin/bash
+# changeBrightness
+
+msgTag="myBrightness"
+ 
+brightnessctl set "$@"
+
+bri=$(brightnessctl get)
+max=$(brightnessctl max)
+per=$(( bri * 100 / max ))
+
+notify-send -t 1000 -a "changeBrightness" -u low -h string:x-canonical-private-synchronous:${msgTag} \
+	 -h int:value:"$per" "Brightness : ${per}%"

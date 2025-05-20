@@ -1,0 +1,13 @@
+#!/bin/sh
+
+choices="updateAll\nthememenu\nidleToggle\n"
+
+chosen=$(echo -e "$choices" | tofi )
+
+scriptDir=$HOME/.scripts
+
+case "$chosen" in
+	"updateAll") foot -e $scriptDir/updateAll ;;
+	"thememenu") ;;
+	"idleToggle") ;;
+esac

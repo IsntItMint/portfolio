@@ -1,0 +1,3 @@
+#include ".config/X11/Xresources.d/dwm"
+#include ".config/X11/Xresources.d/dmenu"
+#include ".config/X11/Xresources.d/st"

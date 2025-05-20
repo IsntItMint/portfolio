@@ -1,0 +1,4 @@
+text.usetex         : True
+font.size           : 8
+font.family         : serif
+text.latex.preamble : \usepackage{bm}

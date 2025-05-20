@@ -1,0 +1,5 @@
+cat ~/.config/suckless/dwm/config.h for more info
+- <Super> a: terminal
+- <Super> d: app launcher
+- <Super> <Shift> c: close window
+- <Super> <Shift> q: logout menu

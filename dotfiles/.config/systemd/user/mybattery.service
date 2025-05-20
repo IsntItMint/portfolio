@@ -1,0 +1,7 @@
+[Unit]
+Description=Notify When battery is low, hibernate if below 5 percent.
+
+[Service]
+Type=oneshot
+ExecStart=%h/.scripts/mybattery
+StandardOutput=null

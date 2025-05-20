@@ -1,0 +1,3 @@
+label,H_2O,logK,-13.999995190049177,sigma,0.001,reaction,<->,1.0,H^{+},1.0,OH^{-}
+label,H_3PO_4,logK,-2.2556452412707104,sigma,1.0,reaction,1.0,H_3PO_4,<->,1.0,H^{+},1.0,H_2PO_4^{-}
+label,H_2PO_4^{-},logK,-7.139776949396405,sigma,1.0,reaction,1.0,H_2PO_4^{-},<->,1.0,H^{+},1.0,HPO_4^{2-}

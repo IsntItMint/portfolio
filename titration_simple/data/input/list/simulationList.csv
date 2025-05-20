@@ -1,0 +1,2 @@
+output folder,initial file,convert file,species file,reactions file,analyte initial volume [mL]
+data/simulation/reported/H3PO4/1000ppm,data/input/conditions/initial/H3PO4/1000ppm.csv,data/input/conditions/convert/H3PO4.csv,data/input/conditions/species/H3PO4.csv,data/input/conditions/reactions/H3PO4_before.csv

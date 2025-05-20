@@ -1,0 +1,3 @@
+output file,simulation data,y axis label,y axis scale,AIC
+fig/simulation/transform/H3PO4/1000ppm/dpHdlogK.pdf,data/simulation/transform/H3PO4/1000ppm/data/dpHdlogK.csv,$\frac{\partial \mathrm{pH}}{\partial k}$,linear,data/simulation/transform/H3PO4/1000ppm/data/AIC.csv
+fig/simulation/transform/H3PO4/1000ppm/dVdlogK.pdf,data/simulation/transform/H3PO4/1000ppm/data/dVdlogK.csv,$\frac{\partial V}{\partial k}$,linear,data/simulation/transform/H3PO4/1000ppm/data/AIC.csv

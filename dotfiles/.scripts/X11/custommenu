@@ -1,0 +1,15 @@
+#!/bin/sh
+
+choices="nothing\nautoUpdate\nthememenu\ntouchpadToggle"
+
+chosen=$(echo -e "$choices" | dmenu )
+
+scriptDir=$HOME/.scripts
+
+case "$chosen" in
+	"nothing") ;;
+	"autoUpdate") st -e $scriptDir/autoUpdate ;;
+	"touchpadToggle") $scriptDir/X11/touchpadToggle ;;
+	"thememenu") $scriptDir/X11/thememenu ;;
+	"idleToggle") ;;
+esac

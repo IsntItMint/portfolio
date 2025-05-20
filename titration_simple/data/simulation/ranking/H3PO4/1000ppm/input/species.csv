@@ -1,0 +1,7 @@
+species,precipitate,charge,P,Na
+H^{+},False,1,0,0
+HPO_4^{2-},False,-2,1,0
+H_2PO_4^{-},False,-1,1,0
+H_3PO_4,False,0,1,0
+OH^{-},False,-1,0,0
+Na^{+},False,1,0,1
