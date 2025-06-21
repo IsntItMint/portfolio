@@ -41,6 +41,21 @@ Email: labrat2014@gmail.com
 
 ---
 
+## Bézier Curve Fitting
+
+비선형 최적화 기법인 Levenberg–Marquardt (LM) Method 의 구현 예시로,  
+Bézier 곡선을 2차원 데이터에 피팅하는 Python 기반 시뮬레이션입니다.  
+모델 복잡도에 따른 AIC (Akaike Information Criterion)를 계산하여  
+최적 제어점 개수를 자동 선택할 수 있도록 설계되었습니다.
+
+---
+
+## Kalman Filter Simulation Portfolio
+
+본 프로젝트는 Kalman 필터의 기초 개념부터 비선형 시스템에 대한 확장까지 다양한 예제를 포함한 시뮬레이션 입니다.  
+
+---
+
 ## dotfiles – 개발 환경 구성 (Linux)
 
 Linux 환경에서 실제로 사용하는 개인 설정파일 일부를 포함하고 있습니다.
